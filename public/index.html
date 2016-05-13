@@ -3,25 +3,13 @@
 <head>
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.js"></script>
 	<script src="javascripts/eventsApp.js"></script>
 </head>
-<body ng-app="eventsApp" ng-controller="eventCtrl">
-	<h1>Create Event</h1>
+<body ng-app="eventsApp">
+	<div><a href="#/">Main</a> <a href="#/about">About</a></div>
 
-	<form ng-Submit="post()">
-		<input required type="text" placeholder="Title" ng-model="newEvent.title"/>
-		<input required type="text" placeholder="Venue" ng-model="newEvent.venue"/>
-		<input required type="text" placeholder="User" ng-model="newEvent.user"/>
-		<input class="button" type="submit" value="Post" />
-	</form>
-
-	<div class="events">
-		<h1>All Events</h1>
-		<div ng-repeat="event in events">
-			<h3>{{ event.title }}</h3>
-			<h4>{{ event.venue }}</h4>
-			<p>Posted by {{ event.user }} at {{ event.timestamp | date: "h:mma 'on' MMM d, y" }}</p>
-		</div>
-	</div>
+	<div ng-view></div>
 </body>
 </html>
